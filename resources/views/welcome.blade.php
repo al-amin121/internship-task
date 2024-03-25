@@ -58,7 +58,7 @@
                     </section>
                 </div>
                 <div class="mt-2 text-white mb-5 "  style=" height: 100px;background-color: var(--bg-color);  border-radius: 10px; margin-left: 20%; ">
-                    <H2 class="pt-4 align-items-center" style=" text-align: center; "><a href="https://github.com/al-amin121/internship-test" class="text-white text-decoration-none">GitHub Link</a> </H2>
+                    <H2 class="pt-4 align-items-center" style=" text-align: center; "><a href="https://github.com/al-amin121/internship-task" class="text-white text-decoration-none">GitHub Link</a> </H2>
                 </div>
             </section>
         </div>
