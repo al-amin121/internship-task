@@ -15,6 +15,29 @@
     </style>
 </head>
 <body>
+<section class="container  mt-5 shadow rounded-3 mb-5 d-flex justify-content-between" style="background-color: var(--bg-gray);">
+    <div class="col-md-6">
+        <form action="{{ route('user.store') }}" method="post" enctype="multipart/form-data">
+            @csrf
+            <div class="card card-body pd-20 pd-md-40 border shadow-none">
+                <div class="form-group mb-5">
+                    <label class="form-label" >Image</label>
+                    <input class="form-control" name="image"  type="file" required>
+                </div>
+                <button class="btn btn-primary btn-block">Add Image</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="col-md-6 mt-2 ms-5">
+        @foreach($userImgs as $userImg)
+            <div class="col-2 ms-5 ps-5">
+                <img src="{{asset($userImg->image)}}" style="height: 100px; width: 200px" alt="">
+            </div>
+        @endforeach
+    </div>
+</section>
+<h4 class="text-center text-primary">{{ session('message') }}</h4>
 <section class="container  mt-5 shadow rounded-3 mb-5" style="background-color: var(--bg-gray);">
     <div class="row">
         <div class="col-md-12">

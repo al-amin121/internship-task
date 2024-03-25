@@ -12,6 +12,24 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    private static $userImage, $image, $imageNewName, $directory, $imgUrl;
+    public static function saveImage($request)
+    {
+        self::$userImage = new User();
+        self::$userImage->image = self::getImgUrl($request);
+        self::$userImage->save();
+    }
+
+    private static function getImgUrl($request)
+    {
+        self::$image = $request->file('image');
+        self::$imageNewName = rand().'.'.self::$image->extension();
+        self::$directory = 'user-image/';
+        self::$imgUrl= self::$directory.self::$imageNewName;
+        self::$image->move(self::$directory,self::$imageNewName);
+        return self::$imgUrl;
+    }
+
     /**
      * The attributes that are mass assignable.
      *
@@ -21,6 +39,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'image',
     ];
 
     /**
